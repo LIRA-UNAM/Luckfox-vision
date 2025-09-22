@@ -225,7 +225,11 @@ class YOLOTrainer(QWidget):
 
     def export_onnx(self):
         try:
-            subprocess.run(["python3", onnx_path, "--weights", best_path, "--include", "onnx"], check=True)
+            subprocess.run(["python3", onnx_path, 
+            "--weights", best_path, 
+            "--include", 
+            "onnx"], 
+            check=True)
             QMessageBox.information(self, "Export", "Exported to ONNX!")
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
